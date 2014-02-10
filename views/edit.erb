@@ -1,2 +1,14 @@
+<% content_for :stylesheets do %>
+  <link rel="stylesheet" type="text/css" href="/css/edit.css"/>
+<% end %>
+
+<div id="links">
+  <% @links.each do |link| %>
+  <div class="link">
+    <div><%= link[0] %>: <a href="<%= link[3] %>"><%= link[1] %></a></div>
+    <p class="description"><%= link[2] %></p>
+  </div>
+  <% end %>
+</div>
 <hr>
-  <a href="/new">Create a new newslink!</a>
+<a href="/new">Create a new newslink!</a>
