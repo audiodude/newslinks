@@ -1,0 +1,14 @@
+#links {
+  width: 600px; 
+  margin: 0 auto;
+}
+
+.link {
+  background-color: #ccc;
+  margin-bottom: 10px;
+  text-align:center;
+}
+
+.description {
+  margin-left: 20px;
+}
