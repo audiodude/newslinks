@@ -2,3 +2,29 @@
   <link rel="stylesheet" type="text/css" href="/css/index.css"/>
 <% end %>
 <h1>Newslinks coming soon!</h1>
+
+<a href="/edit">¡Edit the newslinks!</a>
+
+<div id="links">
+  <% @links.each do |link| %>
+  <div class="link">
+    <div><%= link[0] %>: <a href="<%= link[3] %>"><%= link[1] %></a></div>
+    <p class="description"><%= link[2] %></p>
+  </div>
+  <% end %>
+</div>
+<hr>
+
+
+<!--
+Remember the difference between absolute and relative URLs:
+
+Absolute:
+<a href="http://mdtb-78015.usw1.nitrousbox.com//advertise/now/index.html">Advertise now!</a>
+
+Relative:
+<a href="/advertise/now/index.html">Advertise now!</a>
+
+What's the point of Relative?
+
+-->
