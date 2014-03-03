@@ -1,9 +1,11 @@
 <% content_for :stylesheets do %>
   <link rel="stylesheet" type="text/css" href="/css/index.css"/>
 <% end %>
-<h1>Newslinks coming soon!</h1>
+<div id="edit">
+  <a href="/edit">¡Edit the newslinks!</a>
+</div>
 
-<a href="/edit">¡Edit the newslinks!</a>
+<p id="title">Newslinks coming soon!</p>
 
 <div id="links">
   <% @links.each do |link| %>
@@ -13,7 +15,9 @@
   </div>
   <% end %>
 </div>
-<hr>
+
+<img id="travis" src="http://qph.is.quoracdn.net/main-thumb-702069-200-uld1tTNyfx4LjRGczIOni22TwfaTuH2S.jpeg" alt="Travis">
+
 
 
 <!--

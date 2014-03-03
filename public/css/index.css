@@ -1,3 +1,14 @@
+#title {
+  color:#FFF;
+  text-align:center;
+  font-size:100px;
+}
+
+body {
+  background-image: url(http://www.psdgraphics.com/file/fire-bokeh-background.jpg);
+  background-size: 1500px 1200px;
+}
+
 #links {
   width: 600px; 
   margin: 0 auto;
@@ -12,3 +23,8 @@
 .description {
   margin-left: 20px;
 }
+
+#edit {
+  float:right;
+}
+
