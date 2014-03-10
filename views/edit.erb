@@ -6,7 +6,10 @@
   <% @links.each do |link| %>
   <div class="link">
     <div><%= link[0] %>: <a href="<%= link[3] %>"><%= link[1] %></a></div>
-    <p class="description"><%= link[2] %></p>
+    <p class="description"><%= link[2] %></p> 
+    <div class="actions">
+      <button onclick="location.href = '/edit/<%= link[0] %>';">edit</button>
+    </div>
   </div>
   <% end %>
 </div>
