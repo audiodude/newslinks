@@ -2,14 +2,17 @@
   <link rel="stylesheet" type="text/css" href="/css/edit.css"/>
 <% end %>
 
-<div id="links">
+<div id="links" class="clearfix">
   <% @links.each do |link| %>
   <div class="link">
-    <div><%= link[0] %>: <a href="<%= link[3] %>"><%= link[1] %></a></div>
-    <p class="description"><%= link[2] %></p> 
     <div class="actions">
       <button onclick="location.href = '/edit/<%= link[0] %>';">edit</button>
+      <form method="POST" action="/delete/<%= link[0] %>">
+        <button class="delete" type="submit">delete</button>
+      </form>
     </div>
+    <div><%= link[0] %>: <a href="<%= link[3] %>"><%= link[1] %></a></div>
+    <p class="description"><%= link[2] %></p>
   </div>
   <% end %>
 </div>

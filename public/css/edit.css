@@ -12,3 +12,15 @@
 .description {
   margin-left: 20px;
 }
+
+.actions {
+  float: right;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}

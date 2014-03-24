@@ -40,6 +40,12 @@ post '/edit/:id' do
   redirect '/edit'
 end
 
+post '/delete/:id' do
+  db = SQLite3::Database.new 'newslinks.sqlite'  
+  db.execute('DELETE FROM links WHERE id=?', [params[:id]])
+  redirect '/edit'
+end
+  
 # Why does the id for the two handlers above automatically take the :id parameters. Why doesn't title or description use it? 
 
 # CRUD:
