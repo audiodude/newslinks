@@ -9,9 +9,26 @@ body {
   background-size: 1500px 1200px;
 }
 
-#links {
-  width: 600px; 
+#usa_news {
+  width: 32%; 
   margin: 0 auto;
+  float: left;
+  padding-right: 5px;
+}
+
+#world_news {
+  width: 32%;
+  margin: 0 auto;
+  float: left;
+  padding-right: 5px;
+}
+
+#local_news {
+  width: 32%;
+  margin: 0 auto;
+  float:left;
+  padding-right: 5px;
+
 }
 
 .link {

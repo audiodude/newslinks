@@ -4,7 +4,18 @@ require 'sqlite3'
 
 get '/' do 
   db = SQLite3::Database.new 'newslinks.sqlite'
-  @links = db.execute('SELECT id, title, description, url FROM links')
+  @links = db.execute('SELECT id, title, description, url, category_id FROM links')
+  categories = db.execute('SELECT id, name FROM categories')  # [ [1, 'World news'], [2, 'Local News']
+  @category_id_to_name = Hash[categories]
+  
+  @category_id_to_links = {}
+  @links.each do |link|
+    if @category_id_to_links.has_key?(link[4])
+      @category_id_to_links[link[4]] << link
+    else
+      @category_id_to_links[link[4]] = [link]
+    end
+  end
   erb :index
 end
 
@@ -21,8 +32,8 @@ end
 # POST to /new when we are submitting the form for a new newslink
 post '/new' do
   db = SQLite3::Database.new 'newslinks.sqlite'
-  db.execute('INSERT INTO links (title, description, url) VALUES(?, ?, ?)',
-             [params[:title], params[:description], params[:url]])
+  db.execute('INSERT INTO links (title, description, url, category_id) VALUES(?, ?, ?, ?)',
+    [params[:title], params[:description], params[:url], params[:category_id]])
   # The user has successfully created a newslink, redirect back to the main edit page
   redirect '/edit'
 end
@@ -56,4 +67,4 @@ end
 
 # @links == [ [1, "techcrunch", "cool technology and companies", "techcrunch.com"] ]
 # @links[0] # [1, "techcrunch", "cool technology and companies", "techcrunch.com"]
-# @links[0][0] # 1
+# @links[0][0] #
