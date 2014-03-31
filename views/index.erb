@@ -9,7 +9,7 @@
 <div id="usa_news">
   <p>USA NEWS</p>
     <% @links.each do |link| %>
-      <% if link[4]=1 then %>
+      <% if link[4] == 1 %>
         <div class="link">
         <div><%= link[0] %>: <a href="<%= link[3] %>"><%= link[1] %></a></div>
         <p class="description"><%= link[2] %></p>
@@ -21,7 +21,7 @@
 <div id="world_news">
   <p>WORLD NEWS</p>
   <% @links.each do |link| %>
-    <% if link[4]=2 then %>
+    <% if link[4] == 2 %>
       <div class="link">
       <div><%= link[0] %>: <a href="<%= link[3] %>"><%= link[1] %></a></div>
       <p class="description"><%= link[2] %></p>
@@ -33,7 +33,7 @@
 <div id="local_news">
   <p>LOCAL NEWS</p>
   <% @links.each do |link| %>
-    <% if link[4]=2 then %>
+    <% if link[4] == 3 %>
       <div class="link">
       <div><%= link[0] %>: <a href="<%= link[3] %>"><%= link[1] %></a></div>
       <p class="description"><%= link[2] %></p>
