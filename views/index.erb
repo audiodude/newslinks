@@ -6,10 +6,26 @@
 </div>
 
 <p id="title">¡Newslinks!</p>
+
+<% @category_id_to_links.each do |category_id, links| %>
+<div class="category">
+  <p><%= @category_id_to_name[category_id.to_i] %></p>
+    <% links.each do |link| %>
+      <div class="link">
+      <div><%= link[0] %>: <a href="<%= link[3] %>"><%= link[1] %></a></div>
+      <p class="description"><%= link[2] %></p>
+      </div>
+    <% end %>
+</div>
+<% end %>
+  
+  
+
+<!--
 <div id="usa_news">
   <p>USA NEWS</p>
     <% @links.each do |link| %>
-      <% if link[4] == 1 %>
+      <% if link[4] == "1" %>
         <div class="link">
         <div><%= link[0] %>: <a href="<%= link[3] %>"><%= link[1] %></a></div>
         <p class="description"><%= link[2] %></p>
@@ -21,7 +37,7 @@
 <div id="world_news">
   <p>WORLD NEWS</p>
   <% @links.each do |link| %>
-    <% if link[4] == 2 %>
+    <% if link[4] == "2" %>
       <div class="link">
       <div><%= link[0] %>: <a href="<%= link[3] %>"><%= link[1] %></a></div>
       <p class="description"><%= link[2] %></p>
@@ -33,7 +49,7 @@
 <div id="local_news">
   <p>LOCAL NEWS</p>
   <% @links.each do |link| %>
-    <% if link[4] == 3 %>
+    <% if link[4] == "3" %>
       <div class="link">
       <div><%= link[0] %>: <a href="<%= link[3] %>"><%= link[1] %></a></div>
       <p class="description"><%= link[2] %></p>
@@ -41,6 +57,7 @@
     <% end %>
   <% end %></div>
 </div>
+-->
 <!--<img id="travis" src="http://qph.is.quoracdn.net/main-thumb-702069-200-uld1tTNyfx4LjRGczIOni22TwfaTuH2S.jpeg" alt="Travis">-->
 
 

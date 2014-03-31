@@ -5,17 +5,20 @@ require 'sqlite3'
 get '/' do 
   db = SQLite3::Database.new 'newslinks.sqlite'
   @links = db.execute('SELECT id, title, description, url, category_id FROM links')
-  categories = db.execute('SELECT id, name FROM categories')  # [ [1, 'World news'], [2, 'Local News']
+  categories = db.execute('SELECT id, name FROM categories')  # [ [1, 'World news'], [2, 'Local News'], ... ]
   @category_id_to_name = Hash[categories]
   
   @category_id_to_links = {}
   @links.each do |link|
-    if @category_id_to_links.has_key?(link[4])
-      @category_id_to_links[link[4]] << link
+    link_category_id = link[4]
+    if @category_id_to_links.has_key?(link_category_id)
+      @category_id_to_links[link_category_id] << link
     else
-      @category_id_to_links[link[4]] = [link]
+      @category_id_to_links[link_category_id] = [link]
     end
   end
+  puts @category_id_to_links.inspect
+  
   erb :index
 end
 
